@@ -1,0 +1,62 @@
+<!-- chat/templates/chat/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    {%  load static %}
+    <meta charset="UTF-8">
+    <title>Register</title>
+     <!-- Bootstrap -->
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <!-- W3CSS -->
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <!--Self Defined CSS-->
+    <link href="{% static 'SelfDefine.css' %}" rel="stylesheet">
+    <!--Font Library-->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <title>Chat Rooms</title>
+</head>
+<body background="{% static 'images/bg3.jpg' %}">
+    <div class="row">
+        <div class="col-md-1">&nbsp;</div>
+        <div class="col-md-7">
+            <h1 class="w3-lobster" style="font-size: 48px">Welcome to Chat Room!<br> <small>Designed By Chenxi Li</small></h1>
+            </div>
+        <div class="col-md-4">
+            &nbsp;<br>
+            <a href="{% url 'logout' %}"><button class="btn2">Log out</button></a><br>
+        </div>
+    </div>
+    <p class="text-danger text-center">
+        {{ error }}
+    </p>
+    <div class="row">
+        <div class="col-md-4">&nbsp;</div>
+        <div class="col-md-4">
+    <h3 class="w3-lobster text-center"> What chat room would you like to enter?</h3>
+    <input id="room-name-input" type="text" size="100" class="w3-input"/><br/>
+    <input id="room-name-submit" type="button" class="btn1" value="Enter"/><br>
+    <h3 class="w3-lobster text-center">Open a room and invite your friend:</h3>
+    <form method="post" action="{% url 'invite_chat' %}">
+        {% csrf_token %}
+        RoomName: <input type="text" name="roomname" class="w3-input"><br>
+        User Want to Invite: <input type="text" name="friend" class="w3-input"><br>
+        <button type="submit" class="btn1">Go!</button>
+    </form>
+        </div>
+        <div class="col-md-4">&nbsp;</div>
+    </div>
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            window.location.pathname = '/chat/' + roomName + '/';
+        };
+    </script>
+</body>
+</html>

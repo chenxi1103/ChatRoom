@@ -1,0 +1,58 @@
+body{
+    background-color: lightpink; !important;
+}
+.w3-lobster {
+    font-family: "Lobster", serif;
+}
+.btn1{
+    font-size: 20px;
+    height: 40px;
+    width: 90px;
+    border-radius: 15px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    border: solid;
+    text-decoration: none;
+    margin: 0px 0px 50px 140px;
+}
+
+.btn2{
+    font-size: 20px;
+    height: 45px;
+    width: 120px;
+    border-radius: 15px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    border: solid;
+    text-decoration: none;
+    margin: 0px 0px 50px 140px;
+}
+.btn3{
+    font-size: 20px;
+    height: 45px;
+    width: 120px;
+    border-radius: 15px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    border: solid;
+    text-decoration: none;
+    margin: 0px 0px 20px 100px;
+}
+.btn4{
+    font-size: 20px;
+    height: 40px;
+    width: 90px;
+    border-radius: 15px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    border: solid;
+    text-decoration: none;
+    margin: 0px 0px 0px 0px;
+}
+
+.exitbtn{
+    font-size: 20px;
+    height: 40px;
+    width: 250px;
+    border-radius: 15px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
+    border: solid;
+    text-decoration: none;
+    margin: 0px 0px 0px 0px;
+}

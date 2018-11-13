@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%  load static %}
+    <meta charset="UTF-8">
+    <title>Register</title>
+     <!-- Bootstrap -->
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- W3CSS -->
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+      <!--Self Defined CSS-->
+    <link href="{% static 'SelfDefine.css' %}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body background="{% static 'images/bg3.jpg' %}">
+ <div class="w3-cell-row">
+                <div class="w3-container w3-cell w3-animate-right">
+                    <p>&nbsp;</p><br>
+                    <p>&nbsp;</p><br>
+                    <h1>&nbsp;&nbsp;For New People</h1>
+                    <a  href="{% url 'register' %}">&nbsp;&nbsp;Join Us Today to Enjoy Our Chatroom</a><br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a  class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register Now!</a>
+                </div>
+
+                <div class="w3-container w3-cell w3-animate-right ">
+                <p>&nbsp;</p><br>
+                <div class="w3-container w3-card-4 w3-light-red">
+                    <form method="post" action="{% url 'login' %}">
+                    <!---error message--->
+                        {% if form.errors %}
+                        <h5 class="alert-danger">
+                            Incorrect user name and password.
+                        </h5>
+                        {% endif %}
+                         <p class="w3-text">&nbsp;</p>
+                        <h2 class="w3-text">Login</h2>
+                        <h5>Login to chat with you friend!</h5>
+                        {% csrf_token %}
+                        <p>
+                            <label for = "username" class="w3-text"><b>UserName</b></label>
+                            <input class="w3-input w3-border" name="username" id = "username" maxlength="30" type="text" /></p>
+                        <p>
+                            <label for = "password" class="w3-text"><b>Password</b></label>
+                            <input class="w3-input w3-border" name="password" id = "password" maxlength="30" type="password"></p>
+
+                        <p>
+                            <button class="btn btn-info" type="submit">Log In</button>
+                        </p>
+
+                            <input type="hidden" name="next" value="{{ next }}" />
+                    </form>
+                    <p class="w3-text">&nbsp;</p>
+                </div>
+                </div>
+            </div>
+
+</body>
+</html>

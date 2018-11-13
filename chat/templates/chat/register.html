@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%  load static %}
+    <meta charset="UTF-8">
+    <title>Register</title>
+     <!-- Bootstrap -->
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- W3CSS -->
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+
+      <!--Self Defined CSS-->
+    <link href="{% static 'SelfDefine.css' %}" rel="stylesheet">
+</head>
+<body background="{% static 'images/bg3.jpg' %}">
+<div>
+    <h1>&nbsp;</h1>
+</div>
+<div class="row">
+    <div class="col-md-4"><p>&nbsp;</p></div>
+    <div class="col-md-4 w3-animate-right">
+
+    <form class="w3-container w3-card-4 w3-light-red" method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        <!---error message--->
+        {% for error in form.non_field_errors %}
+        <h5 class="alert-danger">
+        {{ error }}
+        </h5>
+        {% endfor %}
+        {% for field in form %}
+          {% if field.errors %}
+            {% for error in field.errors %}
+                <h5 class="alert-danger">
+                {{ field.name }}: {{ error }}
+                </h5>
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+
+        <h2 class="w3-text">Register</h2>
+        <p>
+            <label for = "username" class="w3-text"><b>UserName</b></label>
+            <input class="w3-input w3-border" name="username" id = "username" maxlength="30" type="text" /></p>
+        <p>
+            <label for = "password1" class="w3-text"><b>Password</b></label>
+
+            <input class="w3-input w3-border" name="password1" id = "password1" maxlength="30" type="password"></p>
+        <p>
+            <label for = "password2" class="w3-text"><b>Confirm Password</b></label>
+            <input class="w3-input w3-border" name="password2" id = "password2" maxlength="30" type="password"></p>
+        <p>
+            <label for = "email" class="w3-text"><b>Email</b></label>
+            <input class="w3-input w3-border" name="email" id = "email" maxlength="100" type="text" /></p>
+            <button class="btn btn-info">Create New Account</button><br>
+    <input type="hidden" name="next" value="{{ next }}" /><br>
+    </form>
+    </div>
+    <div class="col-md-4">
+        <h1>&nbsp;</h1>
+    </div>
+</div>
+
+</body>
+</html>

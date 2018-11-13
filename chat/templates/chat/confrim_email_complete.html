@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%  load static %}
+    <meta charset="UTF-8">
+    <title>Register</title>
+     <!-- Bootstrap -->
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <!-- W3CSS -->
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <!--Self Defined CSS-->
+    <link href="{% static 'SelfDefine.css' %}" rel="stylesheet">
+</head>
+<body background="{% static 'images/bg3.jpg' %}">
+    <div class="row">
+    <div class="col-md-3"><p>&nbsp;</p></div>
+    <div class="col-md-6 w3-animate-right">
+        <p >&nbsp;</p>
+    <div class="w3-card-4"></div>
+
+<div class="w3-container w3-pale-blue">
+    <p>&nbsp;</p>
+  <p>Dear User:</p>
+    <p>Your are all set. You may go ahead and <a href="{% url 'login' %}"><button class="btn-info">sign in</button></a> now.</p>
+    <p>Enjoy our great grumblr and start to chat with your friend!</p>
+    <p>Have a great day! Love ya~</p><br>
+</div>
+
+<footer class="w3-container w3-blue">
+  <h5>From: Icecream ChatRoom Team</h5>
+</footer>
+</div>
+    </div>
+    <div class="col-md-3">
+        <h1>&nbsp;</h1>
+    </div>
+</div>
+</body>
+</html>
